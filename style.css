@@ -11,10 +11,13 @@
     --text: #1a1a2e;
     --text-light: #64748b;
     --bg: #f8fafc;
-    --card-bg: #ffffff;
-    --border: #e2e8f0;
+    --card-bg: rgba(255,255,255,0.75);
+    --border: rgba(255,255,255,0.45);
     --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
-    --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 18px 40px rgba(15,23,42,0.12);
+    --glass: rgba(255,255,255,0.18);
+    --glass-strong: rgba(255,255,255,0.25);
+    --glass-border: rgba(255,255,255,0.45);
     --bronze: #cd7f32;
     --silver: #a0a0a0;
     --gold: #ffd700;
@@ -28,22 +31,47 @@
 }
 
 body {
+    position: relative;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--bg);
+    background-color: var(--bg);
+    background-image:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,0.55), transparent 18%),
+        radial-gradient(circle at 80% 15%, rgba(0, 188, 212, 0.16), transparent 20%),
+        linear-gradient(rgba(248, 250, 252, 0.55), rgba(248, 250, 252, 0.55)),
+        url("./logo.png");
+    background-repeat: no-repeat;
+    background-position: center 35%, center 35%, center 35%, center 40%;
+    background-size: 180px auto, 220px auto, cover, 520px auto;
+    background-attachment: fixed;
     color: var(--text);
     line-height: 1.6;
     overflow-x: hidden;
+    z-index: 0;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(255,255,255,0.18), transparent 18%),
+                radial-gradient(circle at bottom right, rgba(0,188,212,0.1), transparent 20%);
+    pointer-events: none;
+    z-index: -1;
 }
 
 /* ============================================
    HEADER
    ============================================ */
 .header {
-    background: var(--primary);
+    background: linear-gradient(135deg, rgba(26, 35, 126, 0.95), rgba(26, 35, 126, 0.82));
     color: white;
     padding: 80px 20px;
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.18);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 70px rgba(15,23,42,0.28);
+    border-radius: 36px;
 }
 
 .header-top {
@@ -76,27 +104,29 @@ body {
 .header::before {
     content: '';
     position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 600px;
-    height: 600px;
-    background: var(--accent);
+    top: -40%;
+    right: -15%;
+    width: 520px;
+    height: 520px;
+    background: rgba(255,255,255,0.22);
+    filter: blur(32px);
     border-radius: 50%;
-    opacity: 0.1;
-    animation: float 6s ease-in-out infinite;
+    opacity: 0.95;
+    animation: float 7s ease-in-out infinite;
 }
 
 .header::after {
     content: '';
     position: absolute;
-    bottom: -30%;
+    bottom: -25%;
     left: -10%;
-    width: 400px;
-    height: 400px;
-    background: var(--accent);
+    width: 420px;
+    height: 420px;
+    background: rgba(0,188,212,0.12);
+    filter: blur(28px);
     border-radius: 50%;
-    opacity: 0.05;
-    animation: float 8s ease-in-out infinite reverse;
+    opacity: 0.95;
+    animation: float 9s ease-in-out infinite reverse;
 }
 
 @keyframes float {
@@ -155,18 +185,20 @@ body {
     justify-content: center;
     gap: 8px;
     padding: 24px 20px;
-    background: white;
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: blur(24px);
     position: sticky;
     top: 0;
     z-index: 100;
     box-shadow: var(--shadow);
     flex-wrap: wrap;
+    border: 1px solid rgba(255,255,255,0.35);
 }
 
 .nav-tab {
     padding: 12px 24px;
-    border: 2px solid var(--border);
-    background: white;
+    border: 1px solid rgba(255,255,255,0.35);
+    background: rgba(255,255,255,0.32);
     border-radius: 50px;
     cursor: pointer;
     font-weight: 600;
@@ -176,6 +208,19 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
+}
+
+.nav-tab:hover {
+    background: rgba(255,255,255,0.82);
+    border-color: rgba(255,255,255,0.65);
+    color: var(--accent);
+}
+
+.nav-tab.active {
+    background: rgba(255,255,255,0.95);
+    color: var(--primary);
+    border-color: rgba(255,255,255,0.75);
+    box-shadow: 0 10px 24px rgba(15,23,42,0.12);
 }
 
 .nav-tab:hover {
@@ -240,15 +285,17 @@ body {
 }
 
 .sub-card {
-    background: var(--card-bg);
-    border-radius: 24px;
+    background: rgba(255,255,255,0.18);
+    border-radius: 28px;
     padding: 0;
-    border: 2px solid var(--border);
+    border: 1px solid rgba(255,255,255,0.35);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    backdrop-filter: blur(18px);
+    box-shadow: 0 16px 36px rgba(15,23,42,0.08);
 }
 
 .sub-card:hover {
@@ -422,13 +469,15 @@ body {
 }
 
 .service-card {
-    background: var(--card-bg);
-    border-radius: 20px;
+    background: rgba(255,255,255,0.18);
+    border-radius: 24px;
     padding: 32px;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255,255,255,0.32);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(18px);
+    box-shadow: 0 16px 36px rgba(15,23,42,0.08);
 }
 
 .service-card::before {

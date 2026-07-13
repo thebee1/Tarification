@@ -3,22 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maintenance & Dépannage - INTELLIGENZ</title>
+    <title>Tarification - INTELLIGENZ</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="./logo.png">
+    <link rel="apple-touch-icon" href="./logo.png">
 </head>
 <body>
 
     <!-- Header -->
     <header class="header">
-        <div class="header-content">
-            <div class="logo"><img src="logo.png" alt="INTELLIGENZ"></div>
-            <h1>Maintenance & Dépannage</h1>
-            <p>Des prestations techniques de qualité pour maintenir votre parc informatique en parfait état.</p>
+        <div class="header-top">
+            <div class="brand-block">
+                <div class="logo"><img src="./logo.png" alt="INTELLIGENZ" class="logo-img"></div>
+            </div>
+            <div class="header-text">
+                <h1>Tarification</h1>
+                <p>Des solutions IT transparentes et compétitives, adaptées à chaque besoin et à chaque budget.</p>
+            </div>
         </div>
     </header>
 
+    <!-- Navigation -->
+    <nav class="nav-tabs">
+        <button class="nav-tab active" onclick="showSection('abonnements')">
+            <i class="fas fa-calendar-check"></i> Abonnements
+        </button>
+        <button class="nav-tab" onclick="showSection('maintenance')">
+            <i class="fas fa-tools"></i> Maintenance & Dépannage
+        </button>
+        <button class="nav-tab" onclick="showSection('audiovisuel')">
+            <i class="fas fa-video"></i> Audiovisuel & Logiciels
+        </button>
+    </nav>
+
+    <!-- SECTION 1: Abonnements Maintenance IT, Sauvegarde & Support -->
+    <section id="abonnements" class="section active">
+        <div class="section-header">
+            <h2>Abonnements Maintenance IT, Sauvegarde & Support</h2>
+            <p>Des forfaits adaptés à chaque structure, du petit bureau aux entreprises exigeantes.</p>
+        </div>
+
+        <div class="subscription-grid">
+            <!-- BRONZE -->
+            <div class="sub-card bronze">
+                <div class="sub-header">
+                    <div class="sub-badge">Pack Bronze</div>
+                    <div class="sub-name">BRONZE</div>
+                    <div class="sub-target">Petites structures à budget serré</div>
+                </div>
+                <div class="sub-price">
+                    <div class="price-value">50 000 <span class="currency">F CFA</span></div>
+                    <div class="price-unit">/ mois</div>
+                    <div class="price-extra">(1 à 5 postes) +10 000 / poste ajouté</div>
+                </div>
+                <div class="sub-features">
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 1 visite préventive / mois</li>
+                        <li><i class="fas fa-check-circle"></i> 1 visite curative / mois</li>
+                        <li><i class="fas fa-check-circle"></i> Support à distance (9h–17h)</li>
+                    </ul>
+                </div>
+                <div class="sub-cta">
+                    <button class="sub-btn">Choisir Bronze</button>
+                </div>
+            </div>
+
+            <!-- SILVER -->
+            <div class="sub-card silver">
+                <div class="sub-header">
+                    <div class="sub-badge">Pack Silver</div>
+                    <div class="sub-name">SILVER</div>
+                    <div class="sub-target">PME avec davantage de besoins</div>
+                </div>
+                <div class="sub-price">
+                    <div class="price-value">100 000 <span class="currency">F CFA</span></div>
+                    <div class="price-unit">/ mois</div>
+                    <div class="price-extra">(6 à 10 postes) +10 000 / poste ajouté</div>
+                </div>
+                <div class="sub-features">
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 2 visites préventives / mois</li>
+                        <li><i class="fas fa-check-circle"></i> 2 visites curatives / mois</li>
+                        <li><i class="fas fa-check-circle"></i> Support (9h–17h)</li>
+                        <li><i class="fas fa-check-circle"></i> Rapport mensuel du parc</li>
+                    </ul>
+                </div>
+                <div class="sub-cta">
+                    <button class="sub-btn">Choisir Silver</button>
+                </div>
+            </div>
+
+            <!-- GOLD -->
+            <div class="sub-card gold">
+                <div class="popular-tag">Populaire</div>
+                <div class="sub-header">
+                    <div class="sub-badge">Pack Gold</div>
+                    <div class="sub-name">GOLD</div>
+                    <div class="sub-target">Besoins critiques, continuité primordiale</div>
+                </div>
+                <div class="sub-price">
+                    <div class="price-value">200 000 <span class="currency">F CFA</span></div>
+                    <div class="price-unit">/ mois</div>
+                    <div class="price-extra">À partir de — sans limite de postes</div>
+                </div>
+                <div class="sub-features">
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 2 visites préventives / mois</li>
+                        <li><i class="fas fa-check-circle"></i> 4 visites curatives / mois</li>
+                        <li><i class="fas fa-check-circle"></i> Télémaintenance illimitée</li>
+                        <li><i class="fas fa-check-circle"></i> Support prioritaire</li>
+                        <li><i class="fas fa-check-circle"></i> Monitoring & alertes</li>
+                        <li><i class="fas fa-check-circle"></i> Formation trimestrielle</li>
+                    </ul>
+                </div>
+                <div class="sub-cta">
+                    <button class="sub-btn">Choisir Gold</button>
+                </div>
+            </div>
+
+            <!-- PERSONNALISÉ -->
+            <div class="sub-card custom">
+                <div class="sub-header">
+                    <div class="sub-badge">Sur Mesure</div>
+                    <div class="sub-name">PERSONNALISÉ</div>
+                    <div class="sub-target">Besoins spécifiques, multisites</div>
+                </div>
+                <div class="sub-price">
+                    <div class="price-value">300 000 <span class="currency">F CFA</span></div>
+                    <div class="price-unit">/ mois</div>
+                    <div class="price-extra">Sur devis — à partir de ce montant</div>
+                </div>
+                <div class="sub-features">
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Services à la carte</li>
+                        <li><i class="fas fa-check-circle"></i> Maintenance & support</li>
+                        <li><i class="fas fa-check-circle"></i> Sauvegarde avancée</li>
+                        <li><i class="fas fa-check-circle"></i> ToIP & cybersécurité</li>
+                        <li><i class="fas fa-check-circle"></i> Solutions IA</li>
+                        <li><i class="fas fa-check-circle"></i> Formations sur mesure</li>
+                    </ul>
+                </div>
+                <div class="sub-cta">
+                    <button class="sub-btn">Demander un devis</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="note-box">
+            <i class="fas fa-info-circle"></i>
+            <p><strong>Tarifs indicatifs</strong>, adaptables au parc informatique et au cahier des charges de chaque client.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Maintenance, dépannage & optimisation -->
+    <section id="maintenance" class="section">
+        <div class="section-header">
+            <h2>Maintenance, dépannage & optimisation</h2>
+            <p>Des prestations techniques de qualité pour maintenir votre parc informatique en parfait état.</p>
+        </div>
 
         <div class="table-container">
             <table class="pricing-table">
@@ -70,12 +214,63 @@
         </div>
     </section>
 
+    <!-- SECTION 3: Audiovisuel & abonnements logiciels -->
+    <section id="audiovisuel" class="section">
+        <div class="section-header">
+            <h2>Audiovisuel & abonnements logiciels</h2>
+            <p>Équipements professionnels et licences logicielles pour vos réunions et votre sécurité informatique.</p>
+        </div>
+
+        <div class="cards-grid">
+            <div class="service-card">
+                <div class="card-icon"><i class="fas fa-tv"></i></div>
+                <div class="card-title">Installation audiovisuelle</div>
+                <div class="card-detail">Écrans, micros, caméras et sonorisation pour des présentations fiables et professionnelles.</div>
+                <div class="card-price">À partir de 150 000 <span class="currency">F CFA</span><span class="unit">(selon complexité)</span></div>
+            </div>
+
+            <div class="service-card">
+                <div class="card-icon"><i class="fas fa-laptop"></i></div>
+                <div class="card-title">Location matériel visio</div>
+                <div class="card-detail">Mise à disposition pour réunions et formations en ligne, livré et configuré.</div>
+                <div class="card-price">Dès 200 000 <span class="currency">F CFA</span><span class="unit">/ jour</span></div>
+            </div>
+
+            <div class="service-card">
+                <div class="card-icon"><i class="fas fa-user-cog"></i></div>
+                <div class="card-title">Technicien sur site</div>
+                <div class="card-detail">Accompagnement technique professionnel à la journée pour vos événements et déploiements.</div>
+                <div class="card-price">25 000 <span class="currency">F CFA</span><span class="unit">/ jour</span></div>
+            </div>
+
+            <div class="service-card">
+                <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="card-title">Antivirus — Kaspersky</div>
+                <div class="card-detail">Protection complète d'un poste de travail contre les menaces et les attaques.</div>
+                <div class="card-price">10 000 <span class="currency">F CFA</span><span class="unit">/ an / poste</span></div>
+            </div>
+
+            <div class="service-card">
+                <div class="card-icon"><i class="fas fa-cubes"></i></div>
+                <div class="card-title">ERP — Odoo</div>
+                <div class="card-detail">Toute la gestion de l'entreprise sur une plateforme unique et intégrée.</div>
+                <div class="card-price">5 000 <span class="currency">F CFA</span><span class="unit">/ mois / utilisateur</span></div>
+            </div>
+        </div>
+
+        <div class="note-box">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p><strong>NB :</strong> ces tarifs ne tiennent pas compte du coût du matériel.</p>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-brand"><img src="logo.png" alt="INTELLIGENZ"></div>
+        <div class="footer-brand"><img src="./logo.png" alt="INTELLIGENZ" class="footer-logo-img"></div>
         <div class="footer-tagline">Votre partenaire technologique de confiance</div>
     </footer>
 
     <script src="script.js"></script>
+
 </body>
 </html>

@@ -745,30 +745,129 @@ body::before {
 /* ============================================
    RESPONSIVE
    ============================================ */
+@media (max-width: 1024px) {
+    .subscription-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
 @media (max-width: 768px) {
-    .header { padding: 60px 20px; }
-    .nav-tabs { gap: 6px; padding: 16px; }
-    .nav-tab { padding: 10px 16px; font-size: 0.85rem; }
-    .pricing-table th, .pricing-table td { padding: 16px; }
-    .pricing-table { font-size: 0.9rem; }
-    .section { padding: 40px 16px; }
-    .service-card { padding: 24px; }
-    .sub-card.gold { transform: none; }
-    .sub-card.gold:hover { transform: translateY(-8px); }
+    .header {
+        padding: 50px 18px;
+    }
+    .header-top {
+        flex-direction: column;
+        gap: 18px;
+        align-items: flex-start;
+    }
+    .brand-block {
+        gap: 10px;
+    }
+    .header h1 {
+        font-size: clamp(2rem, 6vw, 3rem);
+    }
+    .header p {
+        max-width: 100%;
+    }
+    .nav-tabs {
+        gap: 6px;
+        padding: 16px;
+    }
+    .nav-tab {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+    }
+    .section {
+        padding: 40px 16px;
+    }
+    .subscription-grid,
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+    .sub-card,
+    .service-card,
+    .table-container,
+    .cta-section,
+    .footer {
+        margin: 0 auto;
+    }
+    .service-card {
+        padding: 24px;
+    }
+    .pricing-table th,
+    .pricing-table td {
+        padding: 14px 16px;
+    }
+    .pricing-table {
+        font-size: 0.95rem;
+    }
+    .cta-section {
+        padding: 60px 16px;
+    }
+    .cta-section h2 {
+        font-size: clamp(2rem, 6vw, 2.5rem);
+    }
+    .cta-section p {
+        font-size: 1rem;
+    }
+    .cta-button {
+        padding: 14px 28px;
+    }
+    .logo-img {
+        height: 48px;
+    }
+    .footer-logo-img {
+        height: 36px;
+    }
 }
 
 @media (max-width: 480px) {
-    .pricing-table thead { display: none; }
+    .header {
+        padding: 40px 16px;
+    }
+    .header-top {
+        gap: 14px;
+    }
+    .header h1 {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+    }
+    .header p,
+    .section-header p,
+    .card-detail,
+    .td-detail,
+    .note-box p,
+    .cta-section p {
+        font-size: 0.95rem;
+    }
+    .nav-tabs {
+        padding: 14px;
+    }
+    .nav-tab {
+        width: 100%;
+        justify-content: center;
+    }
+    .sub-card,
+    .service-card {
+        border-radius: 24px;
+    }
+    .pricing-table thead {
+        display: none;
+    }
     .pricing-table tbody tr {
         display: block;
         margin-bottom: 16px;
-        border: 1px solid var(--border);
-        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.35);
+        border-radius: 16px;
         padding: 16px;
+        background: rgba(255,255,255,0.18);
+        backdrop-filter: blur(18px);
     }
     .pricing-table td {
         display: block;
-        padding: 8px 0;
+        padding: 10px 0;
         border: none;
     }
     .pricing-table td::before {
@@ -780,7 +879,17 @@ body::before {
         text-transform: uppercase;
         margin-bottom: 4px;
     }
-    .td-price { font-size: 1.2rem; color: var(--accent-dark); }
+    .note-box {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .cta-button {
+        width: 100%;
+        justify-content: center;
+    }
+    .footer {
+        padding: 32px 16px;
+    }
 }
 
 /* ============================================

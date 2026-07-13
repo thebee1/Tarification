@@ -34,10 +34,15 @@ body {
     position: relative;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: var(--bg);
-    background-image: linear-gradient(rgba(248, 250, 252, 0.55), rgba(248, 250, 252, 0.55));
+    background-image:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,0.55), transparent 18%),
+        radial-gradient(circle at 80% 15%, rgba(0, 188, 212, 0.16), transparent 20%),
+        linear-gradient(rgba(248, 250, 252, 0.55), rgba(248, 250, 252, 0.55)),
+        url("./logo.png");
     background-repeat: no-repeat;
-    background-position: center 35%;
-    background-size: cover;
+    background-position: center 35%, center 35%, center 35%, center 40%;
+    background-size: 180px auto, 220px auto, cover, 520px auto;
+    background-attachment: fixed;
     color: var(--text);
     line-height: 1.6;
     overflow-x: hidden;
@@ -48,11 +53,8 @@ body::before {
     content: '';
     position: fixed;
     inset: 0;
-    background:
-        url("./logo.png") center 40% / 520px auto no-repeat,
-        radial-gradient(circle at top left, rgba(255,255,255,0.18), transparent 18%),
-        radial-gradient(circle at bottom right, rgba(0,188,212,0.1), transparent 20%);
-    background-attachment: fixed;
+    background: radial-gradient(circle at top left, rgba(255,255,255,0.18), transparent 18%),
+                radial-gradient(circle at bottom right, rgba(0,188,212,0.1), transparent 20%);
     pointer-events: none;
     z-index: -1;
 }
@@ -743,134 +745,57 @@ body::before {
 /* ============================================
    RESPONSIVE
    ============================================ */
-@media (max-width: 1024px) {
-    .subscription-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    .cards-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
-
 @media (max-width: 768px) {
-    .header {
-        padding: 50px 18px;
-    }
+    .header { padding: 60px 20px; }
     .header-top {
         flex-direction: column;
-        gap: 18px;
         align-items: flex-start;
+        gap: 18px;
     }
     .brand-block {
-        gap: 10px;
+        width: 100%;
+        justify-content: flex-start;
     }
-    .header h1 {
-        font-size: clamp(2rem, 6vw, 3rem);
-    }
-    .header p {
-        max-width: 100%;
-    }
-    .nav-tabs {
-        gap: 6px;
-        padding: 16px;
-    }
-    .nav-tab {
-        padding: 10px 14px;
-        font-size: 0.85rem;
-    }
-    .section {
-        padding: 40px 16px;
-    }
+    .nav-tabs { gap: 8px; padding: 16px; }
+    .nav-tab { padding: 12px 18px; font-size: 0.95rem; }
+    .pricing-table th, .pricing-table td { padding: 16px; }
+    .pricing-table { font-size: 0.95rem; }
+    .section { padding: 40px 16px; }
+    .service-card { padding: 24px; }
     .subscription-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    .cards-grid {
         grid-template-columns: 1fr;
     }
-    .sub-card,
-    .service-card,
-    .table-container,
-    .cta-section,
-    .footer {
-        margin: 0 auto;
-    }
-    .service-card {
-        padding: 24px;
-    }
-    .pricing-table th,
-    .pricing-table td {
-        padding: 14px 16px;
-    }
-    .pricing-table {
-        font-size: 0.95rem;
-    }
-    .cta-section {
-        padding: 60px 16px;
-    }
-    .cta-section h2 {
-        font-size: clamp(2rem, 6vw, 2.5rem);
-    }
-    .cta-section p {
-        font-size: 1rem;
-    }
-    .cta-button {
-        padding: 14px 28px;
-    }
-    .logo-img {
-        height: 48px;
-    }
-    .footer-logo-img {
-        height: 36px;
-    }
+    .sub-card.gold { transform: none; }
+    .sub-card.gold:hover { transform: translateY(-8px); }
 }
 
 @media (max-width: 480px) {
-    .header {
-        padding: 40px 16px;
-    }
-    .subscription-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    .header-top {
-        gap: 14px;
-    }
-    .header h1 {
-        font-size: clamp(1.8rem, 8vw, 2.5rem);
-    }
-    .header p,
-    .section-header p,
-    .card-detail,
-    .td-detail,
-    .note-box p,
-    .cta-section p {
-        font-size: 0.95rem;
-    }
     .nav-tabs {
-        padding: 14px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
     }
     .nav-tab {
         width: 100%;
-        justify-content: center;
+        text-align: center;
+        padding: 14px 16px;
     }
-    .sub-card,
-    .service-card {
-        border-radius: 24px;
-    }
-    .pricing-table thead {
-        display: none;
-    }
+    .header { padding: 40px 16px; }
+    .header-top { gap: 16px; }
+    .header-text { width: 100%; }
+    .subscription-grid { gap: 18px; }
+    .service-card, .sub-card { padding: 24px 20px; }
+    .pricing-table thead { display: none; }
     .pricing-table tbody tr {
         display: block;
         margin-bottom: 16px;
-        border: 1px solid rgba(255,255,255,0.35);
-        border-radius: 16px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
         padding: 16px;
-        background: rgba(255,255,255,0.18);
-        backdrop-filter: blur(18px);
     }
     .pricing-table td {
         display: block;
-        padding: 10px 0;
+        padding: 8px 0;
         border: none;
     }
     .pricing-table td::before {
@@ -882,17 +807,7 @@ body::before {
         text-transform: uppercase;
         margin-bottom: 4px;
     }
-    .note-box {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .cta-button {
-        width: 100%;
-        justify-content: center;
-    }
-    .footer {
-        padding: 32px 16px;
-    }
+    .td-price { font-size: 1.2rem; color: var(--accent-dark); }
 }
 
 /* ============================================
@@ -939,6 +854,6 @@ body::before {
     .logo-img { height: 40px; }
     .footer-logo-img { height: 32px; }
     .subscription-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: 1fr;
     }
 }

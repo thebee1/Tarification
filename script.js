@@ -1,6 +1,28 @@
 /* ============================================
-   INTELLIGENZ - JavaScript Commun
+   INTELLIGENZ - Tarification
+   Fichier JavaScript séparé
    ============================================ */
+
+function showSection(sectionId) {
+    // Masquer toutes les sections
+    document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+    });
+
+    // Retirer la classe active de tous les onglets
+    document.querySelectorAll('.nav-tab').forEach(tab => {
+        tab.classList.remove('active');
+    });
+
+    // Afficher la section sélectionnée
+    document.getElementById(sectionId).classList.add('active');
+
+    // Ajouter la classe active à l'onglet cliqué
+    event.target.closest('.nav-tab').classList.add('active');
+
+    // Scroll fluide vers le haut du contenu
+    document.querySelector('.nav-tabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
 
 // Effet parallax subtil au scroll
 window.addEventListener('scroll', () => {
